@@ -14,15 +14,21 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class JavaDomImplementation {
+	
+	
+	
+	
 
 	public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
+		
+		
 		// TODO Auto-generated method stub
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
 
 		//Load and Parse the XML document
 		//document contains the complete XML as a Tree.
-		Document document = builder.parse(new File("D:\\Class Lectures\\Masters_UFRT_2nd_Sem\\XML & Web Technologies\\XML API(SAX, DOM)\\Lab\\dvd.xml"));
+		Document document = builder.parse(new File("./data/dvd.xml"));
 		Element root =  document.getDocumentElement(); 
 		//NodeList nodeList = document.getDocumentElement().getChildNodes();
 		System.out.println(root.getChildNodes().getLength());
