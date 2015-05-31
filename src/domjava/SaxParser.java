@@ -4,31 +4,97 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.namespace.QName;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.xpath.*;
 
-
+import org.w3c.dom.NodeList;
 import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 public class SaxParser {
+	
+	
+	public static void xpathparser()
+	{
+		
+		System.out.println("------------------------------");
+
+		System.out.println("XPATH 4a)");
+
+		try
+		{
+		// SAX InputSource
+		//XPath - SAX
+		org.xml.sax.InputSource source = new InputSource(
+		      new FileInputStream("./data/dvd.xml"));
+		//Xpath factory
+		XPathFactory factory = XPathFactory.newInstance();
+		XPath xpath = factory.newXPath();
+		//evaluate Xpath query
+		String xpathString = "//DVD/film/title"; XPathExpression exp = xpath.compile (xpathString); QName format = XPathConstants.NODESET;
+		NodeList results = (NodeList)exp.evaluate(source,format);
+		for (int i = 0; i < results.getLength(); i++) {
+			System.out.println(results.item(i).getFirstChild().getNodeValue());
+
+		}
+		}
+		catch(Exception e)
+		{
+		e.printStackTrace();	
+		}
+		System.out.println("------------------------------");
+
+		System.out.println("XPATH 4b)");
+
+		try
+		{
+		// SAX InputSource
+		//XPath - SAX
+		org.xml.sax.InputSource source = new InputSource(
+		      new FileInputStream("./data/dvd.xml"));
+		//Xpath factory
+		XPathFactory factory = XPathFactory.newInstance();
+		XPath xpath = factory.newXPath();
+		//evaluate Xpath query
+		String xpathString = "//DVD[rent]/film/title"; XPathExpression exp = xpath.compile (xpathString); QName format = XPathConstants.NODESET;
+		NodeList results = (NodeList)exp.evaluate(source,format);
+		for (int i = 0; i < results.getLength(); i++) {
+			System.out.println(results.item(i).getFirstChild().getNodeValue());
+
+		}		
+		}
+		catch(Exception e)
+		{
+		e.printStackTrace();	
+		}
+		System.out.println("------------------------------");
+
+	}
+	
+	
 	public static void main(String[] args) throws Exception {
 	    SAXParserFactory parserFactor = SAXParserFactory.newInstance();
 	    SAXParser parser = parserFactor.newSAXParser();
 	    SAXDomHandler handler = new SAXDomHandler();
 	    
 	    //Using XML File for Parsing
-	    parser.parse(new FileInputStream("D:\\xml\\dvd.xml"),
+	    parser.parse(new FileInputStream("./data/dvd.xml"),
 	                 handler);
 	     
+	    
 	    //Printing the list of movie titles obtained from XML
 	    System.out.println("\nThe  list of Movie Titles are as follows:");
 	    for ( DVDLibrary dvd : handler.dvdList){
 	      System.out.println(dvd.showtitle());
 	    }
+		xpathparser();
 	  }
+	
+		
 	}
 
 
