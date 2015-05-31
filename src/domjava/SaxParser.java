@@ -89,9 +89,9 @@ public class SaxParser {
 	     
 	    
 	    //Printing the list of movie titles obtained from XML
-	    System.out.println("\n------------------------------");
+	    System.out.println("\n---------------------------------");
 	    System.out.println("The  list of Film Titles in dvd.xml:");
-	    System.out.println("------------------------------");
+	    System.out.println("---------------------------------");
 	    for ( DVDLibrary dvd : handler.dvdList){
 	      System.out.println(dvd.showtitle());
 	    }
