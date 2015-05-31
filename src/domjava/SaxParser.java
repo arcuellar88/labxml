@@ -80,7 +80,9 @@ public class SaxParser {
 	    SAXParserFactory parserFactor = SAXParserFactory.newInstance();
 	    SAXParser parser = parserFactor.newSAXParser();
 	    SAXDomHandler handler = new SAXDomHandler();
-	    
+	    System.out.println("------------------------------");
+	    System.out.println("Sax Parser Initialised:");
+	    System.out.println("------------------------------");
 	    //Using XML File for Parsing
 	    parser.parse(new FileInputStream("./data/dvd.xml"),
 	                 handler);
@@ -114,6 +116,9 @@ class SAXDomHandler extends DefaultHandler {
 	       
 	    switch(qName){
 	      // Print whenever the start tags are found.
+	      case "DVDLibrary":
+		        System.out.println("Start Element: DVDLibrary");
+		        break;
 	      case "DVD":
 			  	//Create a new DVD object when the start tag is found
 		        dvd = new DVDLibrary();
@@ -124,9 +129,6 @@ class SAXDomHandler extends DefaultHandler {
 		        break;
 	      case "actor":
 		        System.out.println("Start Element: actor");
-		        break;
-	      case "rent":
-		        System.out.println("Start Element: rent");
 		        break;
 	      case "title":
 		        System.out.println("Start Element: title");
@@ -140,11 +142,20 @@ class SAXDomHandler extends DefaultHandler {
 	      case "type":
 		        System.out.println("Start Element: type");
 		        break;
+	      case "firstName":
+		        System.out.println("Start Element: firstName");
+		        break;
 	      case "lastName":
 		        System.out.println("Start Element: lastName");
 		        break;
-	      case "firstName":
-		        System.out.println("Start Element: firstName");
+	      case "rent":
+		        System.out.println("Start Element: rent");
+		        break;
+	      case "person":
+		        System.out.println("Start Element: person");
+		        break;
+	      case "address":
+		        System.out.println("Start Element: address");
 		        break;
 	    }
 	  }
@@ -155,6 +166,9 @@ class SAXDomHandler extends DefaultHandler {
 	                         String qName) throws SAXException {
 	   switch(qName){
 	      // Print whenever the start tags are found.
+	     case "DVDLibrary":
+		   System.out.println("End Element: DVDLibrary");
+	       break;
 	     case "DVD":
 		   System.out.println("End Element: DVD");
 		   //Add the dvd to list once end tag is found
@@ -186,6 +200,15 @@ class SAXDomHandler extends DefaultHandler {
 	       break;
 	     case "lastName":
 	    	 System.out.println("End Element: lastName");
+	       break;
+	     case "rent":
+	    	 System.out.println("End Element: rent");
+	       break;
+	     case "person":
+	    	 System.out.println("End Element: person");
+	       break;
+	     case "address":
+	    	 System.out.println("End Element: address");
 	       break;
 	   }
 	  }
