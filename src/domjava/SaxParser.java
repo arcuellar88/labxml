@@ -87,7 +87,9 @@ public class SaxParser {
 	     
 	    
 	    //Printing the list of movie titles obtained from XML
-	    System.out.println("\nThe  list of Movie Titles are as follows:");
+	    System.out.println("\n------------------------------");
+	    System.out.println("The  list of Film Titles in dvd.xml:");
+	    System.out.println("------------------------------");
 	    for ( DVDLibrary dvd : handler.dvdList){
 	      System.out.println(dvd.showtitle());
 	    }
@@ -115,28 +117,34 @@ class SAXDomHandler extends DefaultHandler {
 	      case "DVD":
 			  	//Create a new DVD object when the start tag is found
 		        dvd = new DVDLibrary();
-		        System.out.println("Start Element DVD");
+		        System.out.println("Start Element: DVD");
 		        break;
 	      case "film":
-		        System.out.println("Start Element Film");
+		        System.out.println("Start Element: Film");
 		        break;
 	      case "actor":
-		        System.out.println("Start Element actor");
+		        System.out.println("Start Element: actor");
 		        break;
 	      case "rent":
-		        System.out.println("Start Element rent");
+		        System.out.println("Start Element: rent");
 		        break;
 	      case "title":
-		        System.out.println("Start Element rent");
+		        System.out.println("Start Element: title");
 		        break;
 	      case "director":
-		        System.out.println("Start Element director");
+		        System.out.println("Start Element: director");
 		        break;
 	      case "year":
-		        System.out.println("Start Element year");
+		        System.out.println("Start Element: year");
 		        break;
 	      case "type":
-		        System.out.println("Start Element type");
+		        System.out.println("Start Element: type");
+		        break;
+	      case "lastName":
+		        System.out.println("Start Element: lastName");
+		        break;
+	      case "firstName":
+		        System.out.println("Start Element: firstName");
 		        break;
 	    }
 	  }
@@ -148,27 +156,36 @@ class SAXDomHandler extends DefaultHandler {
 	   switch(qName){
 	      // Print whenever the start tags are found.
 	     case "DVD":
-		   System.out.println("End Element DVD");
+		   System.out.println("End Element: DVD");
 		   //Add the dvd to list once end tag is found
 	       dvdList.add(dvd);      
 	     case "film":
-		   System.out.println("End Element Film");
+		   System.out.println("End Element: Film");
 	       break;
 	     case "title":
-	    	 System.out.println("End Element title");
+	    	 System.out.println("End Element: title");
 	    	 dvd.title = content;
 	       break;
 	     case "director":
-	    	 System.out.println("End Element director");
+	    	 System.out.println("End Element: director");
 	    	 dvd.director = content;
 	       break;
 	     case "type":
-	    	 System.out.println("End Element type");
+	    	 System.out.println("End Element: type");
 	    	 dvd.type = content;
 	       break;
 	     case "year":
-	    	 System.out.println("End Element year");
+	    	 System.out.println("End Element: year");
 	    	 dvd.year = content;
+	       break;
+	     case "actor":
+	    	 System.out.println("End Element: actor");
+	       break;
+	     case "firstName":
+	    	 System.out.println("End Element: firstName");
+	       break;
+	     case "lastName":
+	    	 System.out.println("End Element: lastName");
 	       break;
 	   }
 	  }
