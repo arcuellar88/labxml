@@ -131,7 +131,7 @@ public class DVDShop {
 	}
 	/**
 	 * Method to get the dates of all DVDs
-	 * 2- Add to the previous program a method, which outputs all the return dates (attribute ‚Äúdate‚Äù of tag <rent>).
+	 * 2- Add to the previous program a method, which outputs all the return dates ((attribute ìdateî of tag <rent>)).
 	 */
 	public void getReturnDates()
 	{
@@ -297,43 +297,43 @@ public class DVDShop {
 	{
 		DVDShop dvds= new DVDShop();
 		System.out.println("------------------------------");
-		System.out.println("getAuthorsDirect()");
+		System.out.println("2.1.a getAuthorsDirect()");
 		System.out.println("------------------------------");
 		dvds.getAuthorsDirect();
 		
 		System.out.println("------------------------------");
-		System.out.println("getAuthorsRecursive(Node root)");
+		System.out.println("2.1.b getAuthorsRecursive(Node root)");
 		System.out.println("------------------------------");
 		dvds.getAuthorsRecursive(dvds.getRoot());
 	
 		System.out.println("------------------------------");
-		System.out.println("getReturnDates()");
+		System.out.println("2.2 getReturnDates()");
 		System.out.println("------------------------------");
 		dvds.getReturnDates();
 		
 		System.out.println("------------------------------");
-		System.out.println("rent()");
+		System.out.println("3. rent()");
 		System.out.println("------------------------------");
 		Renter r = new Renter("Rodriguez Cuellar","Alejandro","8 Rue","24/07/2003");
 		dvds.rent("The Godfather", r);
 		
 		System.out.println("------------------------------");
-		System.out.println("saveXML()");
+		System.out.println("4.1 saveXML()");
 		System.out.println("------------------------------");
 		dvds.saveXML();
 		
 		System.out.println("------------------------------");
-		System.out.println("saveHTML()");
+		System.out.println("4.2 saveHTML()");
 		System.out.println("------------------------------");
 		dvds.saveHTML();
 		
 		System.out.println("------------------------------");
-		System.out.println("getListOfFilmTitles()");
+		System.out.println("4.a getListOfFilmTitles()");
 		System.out.println("------------------------------");
 		dvds.getListOfFilmTitles();
 		
 		System.out.println("------------------------------");
-		System.out.println("getListOfRentedFilmTitles()");
+		System.out.println("4.b getListOfRentedFilmTitles()");
 		System.out.println("------------------------------");
 		dvds.getListOfRentedFilmTitles();
 		

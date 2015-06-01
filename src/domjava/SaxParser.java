@@ -22,8 +22,8 @@ public class SaxParser {
 	{
 		
 		System.out.println("------------------------------");
-
 		System.out.println("XPATH 4a)");
+		System.out.println("------------------------------");
 
 		try
 		{
@@ -46,9 +46,10 @@ public class SaxParser {
 		{
 		e.printStackTrace();	
 		}
+		
 		System.out.println("------------------------------");
-
 		System.out.println("XPATH 4b)");
+		System.out.println("------------------------------");
 
 		try
 		{
